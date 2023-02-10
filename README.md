@@ -1,7 +1,12 @@
 <h2>pgAdmin базовые возможности</h2>
 
-Примечание: ПКМ, ЛКМ - правая и левая кнопка мыши
+Примечание: ПКМ, ЛКМ - правая и левая кнопка мыши</br>
 
+Разделы: </br>
+<a href="#01">01 Установка PostgreSQL и PgAdmin</a></br>
+<a href="#02">02 Создание базы данных в правильной кодировке</a></br>
+
+<a name="01"></a>
 **01 Установка PostgreSQL и PgAdmin** - https://www.postgresql.org/download/ </br>
 Вместе с PostgreSQL уставливается и PgAdmin </br>
 Во время установки задаем пароль суперпользователя (мастер-пароль) базы данных.</br>
@@ -10,8 +15,8 @@ Locale - English, United States</br>
 проверяем наличие службы PostgreSQL
 
 <details>
-<summary>01_Служба_PostgreSQL.png</summary>
-<img src="01_Установка_PostgreSQL/01_Служба_PostgreSQL.png"/> 
+<summary>Служба_PostgreSQL.png</summary>
+<img src="01_Установка_PostgreSQL/Служба_PostgreSQL.png"/> 
 </details>
 
 После установки PgAdmin появляется в меню </br> 
@@ -21,13 +26,32 @@ Locale - English, United States</br>
 Также этот пароль понадобится при заходе в базу данных.</br>
 
 Проверка кодировки </br>
-Открываем Database > ПКМ на postgres > Properties > Definition
-Параметр Encoding = UTF8
+Открываем Database > ПКМ на postgres > Properties > Definition</br>
+Параметр Encoding = UTF8 </br>
 Важно обратить внимание на этот параметр и именно поэтому
-мы выбирали локаль Locale - English, United States
+мы выбирали локаль Locale - English, United States <br/>
+Если у вас кодировка UTF-8, то у вас будет меньше проблем
+с экспортом и импортом данных
 
 <details>
-<summary>01_Служба_PostgreSQL.png</summary>
-<img src="01_Установка_PostgreSQL/02_Проверка_кодировки.png"/> 
+<summary>Проверка_кодировки.png</summary>
+<img src="01_Установка_PostgreSQL/Проверка_кодировки.png"/> 
 </details>
 <hr/>
+
+<a name="02"></a>
+**02 Создание базы данных в правильной кодировке**<br/>
+Если кодировка вашей системы отличается от UTF-8
+вы все равно сможете создать свою базу c UTF-8
+ПКМ На Databases > Create > Database </br>
+Во вкладке Definition можно вручную выбрать </br>
+Encoding - UTF - 8 </br>
+Иногда система может потребовать использовать шаблон template0, 
+тогда его вы тоже можете выбрать в этой вкладке
+<details>
+<summary>База_данных_в_ UTF-8.png</summary>
+<img src="02_База данных_в_UTF-8/База_данных_в_ UTF-8.png"/> 
+</details>
+Также вам может потребоваться перенести все ваши таблицы
+из старой базы в новую, это вы можете сделать через меню
+Tools в верхней части программы - комады Backup и Restore
